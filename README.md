@@ -1,5 +1,8 @@
 # LocalAi
- چت بات شخصی استفاده از مدهای لوکال با استفاده از ollama
+
+چت بات شخصی استفاده از مدهای لوکال با استفاده از ollama و مدل های آنلاین Groq. برای استفاده از Groq نیاز به تغییر آی پی دارید.
+
+برای اجرا باید دستور `streamlit run ./streamlit_app.py` را در ترمینال اجرا کنید
 ## Setup Environment
 
 - python -m venv .venv
@@ -11,7 +14,8 @@
 - python -m pip install -U pip
 - python -m pip install -U groq
 - python -m pip install -U python-dotenv
-
+- python -m pip install -U ollama
+- 
 <br>
 
 - python -m pip install -U streamlit
