@@ -15,7 +15,7 @@
 - python -m pip install -U groq
 - python -m pip install -U python-dotenv
 - python -m pip install -U ollama
-- 
+  
 <br>
 
 - python -m pip install -U streamlit
