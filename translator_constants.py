@@ -4,15 +4,15 @@ Translator Constants
 
 TEMPERATURE: float = 0.0
 
-# MODEL_NAME: str = "llama-3.1-8b-instant"
-# MODEL_NAME: str = "llama-3.3-70b-specdec"
-# MODEL_NAME: str = "llama-3.3-70b-versatile"
-# MODEL_NAME: str = "deepseek-r1-distill-llama-70b"
-MODEL_NAME: str = "gemma2-9b-it"  # برای ترجمه عالی است
-# MODEL_NAME: str = "mixtral-8x7b-32768"  # چرت و پرت می‌دهد
-#MODEL_NAME: str = "hf.co/gyroing/English-to-Persian-Translation-mT5-V1-Q8_0-GGUF:latest"  #local model
-
-
+# GROQ_MODEL_NAME: str = "llama-3.1-8b-instant"
+# GROQ_MODEL_NAME: str = "llama-3.3-70b-specdec"
+# GROQ_MODEL_NAME: str = "llama-3.3-70b-versatile"
+# GROQ_MODEL_NAME: str = "deepseek-r1-distill-llama-70b"
+GROQ_MODEL_NAME: str = "gemma2-9b-it"  # برای ترجمه عالی است
+# GROQ_MODEL_NAME: str = "mixtral-8x7b-32768"  # چرت و پرت می‌دهد
+LOCAL_MODEL_NAME: str = "hf.co/RichardErkhov/universitytehran_-_PersianMind-v1.0-gguf:Q8_0"  #زمان زیادی طول میکشد
+#LOCAL_MODEL_NAME: str = "llama3.1:latest"
+UNSUCCESS_ANSWER: str = "متاسفانه، قادر به ترجمه این جمله نیستم!"
 # می‌خواهم برای من به زبان انگلیسی، یک System Prompt حرفه‌ای بنویسی که آن را برای Model خودم تعریف کنم، تا موارد ذیل را انجام دهد:
 # ۱. مدل من، یک مترجم حرفه‌ای، از زبان انگلیسی به زبان فارسی باشد.
 # ۲. مدل من، باید متن را به صورت کاملا ادبی، روان، شیوا و سلیس، به زبان فارسی ترجمه کند.

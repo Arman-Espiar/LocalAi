@@ -6,7 +6,7 @@ import re
 from groq import Groq
 from dotenv import load_dotenv
 import translator_constants as constants
-
+from ollama import Client
 
 def read_text_file(pathfile: str) -> str:
     """
@@ -71,13 +71,13 @@ def get_paragraphs(text: str) -> list[str]:
     return paragraphs
 
 
-def translate(
+def groq_translate(
     text: str,
     model_name: str = "llama-3.1-8b-instant",
     temperature: float = 0.0,
 ) -> str:
     """
-    Translate Function
+    Online Translate Function, Groq model is used for translation.
     """
 
     load_dotenv()
@@ -100,9 +100,43 @@ def translate(
     assistant_answer: str | None = chat_completion.choices[0].message.content
 
     if not assistant_answer:
-        assistant_answer = "متاسفانه، قادر به ترجمه این جمله نیستم!"
+        assistant_answer = constants.UNSUCCESS_ANSWER
 
     return assistant_answer
+
+def local_translate(
+    text: str,
+    model_name: str = "llama-3.1:latest",
+    temperature: float = 0.0,
+) -> str:
+    """
+    offline Translate Function. Ollama model is used for translation.
+    """
+
+    messages = []
+
+    messages.append(constants.SYSTEM_MESSAGE)
+
+    user_message = {"role": "user", "content": text}
+    messages.append(user_message)
+
+
+    client = Client(host="http://127.0.0.1:11434")
+
+    chat_completion = client.chat(
+        stream=False,
+        model=model_name,
+        messages=messages,
+        options={"temperature": temperature},
+    )
+
+    assistant_answer: str | None = chat_completion.message.content
+
+    if not assistant_answer:
+        assistant_answer = constants.UNSUCCESS_ANSWER
+
+    return assistant_answer
+
 
 
 if __name__ == "__main__":
